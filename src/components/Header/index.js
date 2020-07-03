@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { MdShoppingCart } from 'react-icons/md';
+import { MdFlightTakeoff } from 'react-icons/md';
 import logo from '../../assets/logo.svg';
 import { Container, Cart } from './styles';
 
@@ -17,7 +17,7 @@ function Header() {
           <strong>Minhas reservas</strong>
           <span>0 reservas</span>
         </div>
-        <MdShoppingCart color="#FFF" size={36} />
+        <MdFlightTakeoff color="#FFF" size={36} />
       </Cart>
     </Container>
   );
