@@ -1,5 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+import api from '../../services/api';
 
 export default function Home() {
-  return <div>Home</div>;
+  const [trips, setTrips] = useState([]);
+
+  useEffect(() => {
+    async function loadApi() {
+      const response = await api.get(`trips`);
+
+      setTrips(response.data);
+      console.log(response.data);
+    }
+
+    loadApi();
+  }, []);
+
+  return (
+    <div>
+      <h1>Home</h1>
+    </div>
+  );
 }
