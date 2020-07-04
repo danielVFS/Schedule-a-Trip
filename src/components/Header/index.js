@@ -7,7 +7,7 @@ import logo from '../../assets/logo.svg';
 import { Container, Cart } from './styles';
 
 function Header() {
-  const reserveSize = useSelector((state) => state.reservation);
+  const reserveSize = useSelector((state) => state.reserve.length);
 
   return (
     <Container>
@@ -18,7 +18,7 @@ function Header() {
       <Cart to="/reservation">
         <div>
           <strong>Minhas reservas</strong>
-          <span>{reserveSize.length} reservas</span>
+          <span>{reserveSize} reservas</span>
         </div>
         <MdFlightTakeoff color="#FFF" size={36} />
       </Cart>
