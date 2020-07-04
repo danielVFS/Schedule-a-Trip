@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { MdFlightTakeoff } from 'react-icons/md';
@@ -6,6 +7,8 @@ import logo from '../../assets/logo.svg';
 import { Container, Cart } from './styles';
 
 function Header() {
+  const reserveSize = useSelector((state) => state.reservation);
+
   return (
     <Container>
       <Link to="/">
@@ -15,7 +18,7 @@ function Header() {
       <Cart to="/reservation">
         <div>
           <strong>Minhas reservas</strong>
-          <span>0 reservas</span>
+          <span>{reserveSize.length} reservas</span>
         </div>
         <MdFlightTakeoff color="#FFF" size={36} />
       </Cart>
