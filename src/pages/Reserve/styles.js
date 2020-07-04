@@ -14,6 +14,20 @@ export const Reservations = styled.div`
   align-items: center;
   background-color: #fff;
 
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      border: 1px solid #eee;
+      border-radius: 4px;
+      color: #242424;
+      padding: 10px;
+      width: 45px;
+    }
+  }
+
   img {
     max-height: 100px;
   }
