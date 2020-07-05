@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { MdFlightTakeoff } from 'react-icons/md';
 
-import { addReserve } from '../../store/modules/Reserve/actions';
+import { addReserveRequest } from '../../store/modules/Reserve/actions';
 import api from '../../services/api';
 import { List } from './styles';
 
@@ -20,8 +20,8 @@ export default function Home() {
     loadApi();
   }, []);
 
-  function handleAdd(trip) {
-    dispatch(addReserve(trip));
+  function handleAdd(id) {
+    dispatch(addReserveRequest(id));
   }
 
   return (
@@ -35,7 +35,7 @@ export default function Home() {
           <button
             type="button"
             onClick={() => {
-              handleAdd(trip);
+              handleAdd(trip.id);
             }}
           >
             <div>
