@@ -4,7 +4,7 @@ import { MdDelete, MdAddCircle, MdRemoveCircle } from 'react-icons/md';
 
 import {
   removeReserve,
-  updateAmountReserve,
+  updateAmountRequest,
 } from '../../store/modules/Reserve/actions';
 import { Container, Reservations, Footer } from './styles';
 
@@ -17,11 +17,11 @@ function Reservation() {
   }
 
   function decrementAmount(trip) {
-    dispatch(updateAmountReserve(trip.id, trip.amount - 1));
+    dispatch(updateAmountRequest(trip.id, trip.amount - 1));
   }
 
   function incrementAmount(trip) {
-    dispatch(updateAmountReserve(trip.id, trip.amount + 1));
+    dispatch(updateAmountRequest(trip.id, trip.amount + 1));
   }
 
   return (

@@ -6,7 +6,7 @@ import { addReserveRequest } from '../../store/modules/Reserve/actions';
 import api from '../../services/api';
 import { List } from './styles';
 
-export default function Home() {
+export default function Home({ history }) {
   const dispatch = useDispatch();
   const [trips, setTrips] = useState([]);
 
@@ -22,6 +22,8 @@ export default function Home() {
 
   function handleAdd(id) {
     dispatch(addReserveRequest(id));
+
+    history.push('/reservation');
   }
 
   return (
