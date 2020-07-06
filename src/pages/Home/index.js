@@ -22,8 +22,6 @@ export default function Home({ history }) {
 
   function handleAdd(id) {
     dispatch(addReserveRequest(id));
-
-    history.push('/reservation');
   }
 
   return (

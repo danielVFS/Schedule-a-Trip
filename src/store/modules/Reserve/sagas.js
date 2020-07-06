@@ -1,7 +1,9 @@
 import { call, put, all, takeLatest, select } from 'redux-saga/effects';
+import { toast } from 'react-toastify';
 
 import { addReserveSuccess, updateAmountSuccess } from './actions';
 import api from '../../../services/api';
+// import history from '../../../services/history';
 
 function* addToReserve({ id }) {
   const tripExists = yield select((state) =>
@@ -17,7 +19,7 @@ function* addToReserve({ id }) {
   const amount = currentStock + 1;
 
   if (amount > stockAmount) {
-    alert('Quantidade máxima atingida');
+    toast.error('Quantidade solicitada fora do estoque');
     return;
   }
 
@@ -32,6 +34,7 @@ function* addToReserve({ id }) {
     };
 
     yield put(addReserveSuccess(data));
+    // history.push('/reservation');
   }
 }
 
@@ -43,7 +46,7 @@ function* updateAmount({ id, amount }) {
   const stockAmount = myStock.data.amount;
 
   if (amount > stockAmount) {
-    alert('Quantidade máxima atingida');
+    toast.error('Quantidade solicitada fora do estoque');
   } else {
     yield put(updateAmountSuccess(id, amount));
   }
